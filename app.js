@@ -18,10 +18,14 @@ var commentRoutes    = require("./routes/comments"),
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb://localhost:27017/yelp_camp11", {
+mongoose.connect("mongodb+srv://garce:Canchola818!@cluster0-mamnp.mongodb.net/test?retryWrites=true&w=majority", {
    useNewUrlParser: true,
    useUnifiedTopology: true
- });
+ }).then(() => {
+	console.log('Connected to DB!');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
 
 
 app.use(bp.urlencoded({extended:true}));
