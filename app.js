@@ -26,6 +26,7 @@ mongoose.connect("mongodb+srv://garce:Canchola818!@cluster0-mamnp.mongodb.net/te
 }).catch(err => {
 	console.log('ERROR:', err.message);
 });
+console.log(process.env.DATABASEURL);
 
 
 app.use(bp.urlencoded({extended:true}));
