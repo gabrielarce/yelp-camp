@@ -13,12 +13,15 @@ methodOverride  = require("method-override"),
 //REQUIRING ROUTES
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes       = require("./routes/index")
+    indexRoutes       = require("./routes/index");
+
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp11";
+console.log(process.env.DATABASEURL);
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb+srv://garce:Canchola818!@cluster0-mamnp.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect(url, {
    useNewUrlParser: true,
    useUnifiedTopology: true
  }).then(() => {
@@ -26,7 +29,7 @@ mongoose.connect("mongodb+srv://garce:Canchola818!@cluster0-mamnp.mongodb.net/te
 }).catch(err => {
 	console.log('ERROR:', err.message);
 });
-console.log(process.env.DATABASEURL);
+
 
 
 app.use(bp.urlencoded({extended:true}));
