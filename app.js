@@ -58,5 +58,5 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 
 app.listen(process.env.PORT || 9999, ()=>{
-  console.log("Your deployment demo is now running!")
+  console.log("Your deployment version of YelpCamp is now running!")
 });
